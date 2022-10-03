@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+    <div class="container shadow p-3 bg-body rounded mt-4" style="max-width:500px">
+        <h3> Add a picture </h3>
+        <hr>
+        <form action="" method="post" class="mt-3" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {% for f in form %}
+                <div class="mb-3">
+                    <label class="mb-1 form-label">{{ f.label }} </label>
+                    {{f}}
+                    <p class="text-danger ms-2 lh-1">{{ f.errors|striptags }}</p>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary mb-3">Create</button>
+        </form>
+    </div>
+
+{% endblock %}

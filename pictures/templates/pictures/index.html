@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% load static %}
+<div class="outer-grid-container">
+    <div class="" style="height:100%">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-dark">Categories</li>
+            <a href="/pictures/" class="list-group-item list-group-item-action">All</a>
+
+            {% for c in categories %}
+            <a href="/pictures/?category={{ c.category }}" class="list-group-item list-group-item-action">{{c.category}}</a>
+            {% endfor %}
+            <a href="{% url 'pictures:category-create' %}" class="list-group-item-action btn btn-primary list-group-custom">
+                + Add Category
+            </a>
+            <a href="{% url 'pictures:picture-create' %}" class="list-group-item-action btn btn-primary list-group-custom">
+                + Add Picture
+            </a>
+          </ul>
+    </div>
+    <div>
+        <h6 class="ps-4 pt-2"> {{message}} </h6>
+        <div class="flex-container p-4">
+            {% for p in pictures %}
+                <div class="card custom-card p-3 m-2" style="width: 25rem;">
+                    <div>
+                        <img src="{{p.picture.url}}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{p.title}}</h5>
+                        <span class="badge text-bg-secondary">{{p.category.category}}</span>
+                        <p class="card-text">{{p.description}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

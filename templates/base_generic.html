@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moments</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+    
+    {% block css %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/pictures/stylesheet.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <nav class="navbar bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+            <img src="{% static 'icons/gallery.png' %}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+            <h3 class="text-light ps-3 mt-1" style="display:inline">Moments</h3>
+          </a>
+        </div>
+      </nav>
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
